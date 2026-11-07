@@ -1,0 +1,64 @@
+:host {
+  display: block;
+  color: var(--gray-900);
+}
+
+.organisation-list {
+  font-family: inherit;
+}
+
+.organisation-table {
+  inline-size: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.organisation-table caption {
+  color: var(--gray-700);
+  text-align: start;
+}
+
+.organisation-table th,
+.organisation-table td {
+  border-block-end: 1px solid var(--gray-400);
+  text-align: start;
+  vertical-align: top;
+}
+
+.organisation-name-column {
+  inline-size: 25%;
+}
+
+.organisation-status-column {
+  inline-size: 15%;
+}
+
+.organisation-members-column {
+  inline-size: 15%;
+}
+
+.organisation-email-column {
+  inline-size: 25%;
+}
+
+.organisation-date-column {
+  inline-size: 20%;
+}
+
+.organisation-name {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+a,
+button {
+  color: var(--bright-blue);
+}
+
+button {
+  border: 1px solid currentColor;
+  cursor: pointer;
+  font: inherit;
+}

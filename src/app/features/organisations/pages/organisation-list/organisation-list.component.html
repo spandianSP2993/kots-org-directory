@@ -1,0 +1,162 @@
+<main class="organisation-list" aria-labelledby="organisation-list-title">
+  <h1 id="organisation-list-title" i18n="@@organisationList.title">
+    Organisation directory
+  </h1>
+
+  <section class="directory-controls" aria-label="Organisation list controls" i18n-aria-label="@@organisationList.controlsLabel">
+    <div>
+      <label for="organisation-search" i18n="@@organisationList.searchLabel">
+        Search by organisation name
+      </label>
+      <input
+        id="organisation-search"
+        type="search"
+        [value]="searchInput()"
+        (input)="onSearchInput($event)"
+        i18n-placeholder="@@organisationList.searchPlaceholder"
+        placeholder="Search organisations"
+      >
+    </div>
+
+    <div>
+      <label for="organisation-status-filter" i18n="@@organisationList.statusFilterLabel">
+        Filter by status
+      </label>
+      <select
+        id="organisation-status-filter"
+        [value]="statusFilter()"
+        (change)="onStatusChange($event)"
+      >
+        <option value="all" i18n="@@organisationList.statusFilter.all">All statuses</option>
+        <option value="active" i18n="@@organisationList.statusFilter.active">Active</option>
+        <option value="suspended" i18n="@@organisationList.statusFilter.suspended">Suspended</option>
+        <option value="inactive" i18n="@@organisationList.statusFilter.inactive">Inactive</option>
+        <option value="unknown" i18n="@@organisationList.statusFilter.unknown">Unknown</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="organisation-sort-order" i18n="@@organisationList.sortLabel">
+        Sort organisations
+      </label>
+      <select
+        id="organisation-sort-order"
+        [value]="sortOrder()"
+        (change)="onSortChange($event)"
+      >
+        <option value="name-asc" i18n="@@organisationList.sort.nameAscending">Name ascending</option>
+        <option value="name-desc" i18n="@@organisationList.sort.nameDescending">Name descending</option>
+        <option value="created-newest" i18n="@@organisationList.sort.createdNewest">Created date newest first</option>
+        <option value="created-oldest" i18n="@@organisationList.sort.createdOldest">Created date oldest first</option>
+      </select>
+    </div>
+  </section>
+
+  @if (isLoading()) {
+    <p role="status" aria-live="polite" i18n="@@organisationList.loading">
+      Loading organisations…
+    </p>
+  } @else if (hasError()) {
+    <section role="alert" aria-labelledby="organisation-list-error-title">
+      <h2 id="organisation-list-error-title" i18n="@@organisationList.errorTitle">
+        Organisations could not be loaded
+      </h2>
+      <p i18n="@@organisationList.errorMessage">
+        Please try again.
+      </p>
+      <button type="button" (click)="loadOrganisations()" i18n="@@organisationList.retry">
+        Try again
+      </button>
+    </section>
+  } @else if (organisations().length === 0) {
+    <p role="status" i18n="@@organisationList.empty">
+      No organisations are available.
+    </p>
+  } @else {
+    @if (displayedOrganisations().length === 0) {
+      <p role="status" i18n="@@organisationList.noMatches">
+        No organisations match the selected search and filters.
+      </p>
+    } @else {
+      <table class="organisation-table">
+        <caption i18n="@@organisationList.tableCaption">
+          Organisation records
+        </caption>
+        <colgroup>
+          <col class="organisation-name-column">
+          <col class="organisation-status-column">
+          <col class="organisation-members-column">
+          <col class="organisation-email-column">
+          <col class="organisation-date-column">
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col" i18n="@@organisationList.column.name">Organisation name</th>
+            <th scope="col" i18n="@@organisationList.column.status">Status</th>
+            <th scope="col" i18n="@@organisationList.column.memberCount">Member count</th>
+            <th scope="col" i18n="@@organisationList.column.ownerEmail">Owner email</th>
+            <th scope="col" i18n="@@organisationList.column.createdAt">Created date</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (organisation of displayedOrganisations(); track organisation.id) {
+            <tr>
+              <td>
+                @if (organisation.name) {
+                  <span class="organisation-name" [title]="organisation.name">
+                    {{ organisation.name }}
+                  </span>
+                } @else {
+                  <span i18n="@@organisationList.valueMissing">Not provided</span>
+                }
+              </td>
+              <td>
+                @switch (organisation.status) {
+                  @case ('active') {
+                    <span i18n="@@organisationList.status.active">Active</span>
+                  }
+                  @case ('suspended') {
+                    <span i18n="@@organisationList.status.suspended">Suspended</span>
+                  }
+                  @case ('inactive') {
+                    <span i18n="@@organisationList.status.inactive">Inactive</span>
+                  }
+                  @default {
+                    <span i18n="@@organisationList.status.unknown">Unknown</span>
+                  }
+                }
+              </td>
+              <td>
+                @if (organisation.memberCount !== null) {
+                  {{ organisation.memberCount }}
+                } @else {
+                  <span i18n="@@organisationList.valueMissing">Not provided</span>
+                }
+              </td>
+              <td>
+                @if (organisation.emailStatus === 'valid' && organisation.ownerEmail) {
+                  <a [href]="'mailto:' + organisation.ownerEmail">
+                    {{ organisation.ownerEmail }}
+                  </a>
+                } @else if (organisation.emailStatus === 'invalid') {
+                  <span i18n="@@organisationList.emailInvalid">Invalid email address</span>
+                } @else {
+                  <span i18n="@@organisationList.valueMissing">Not provided</span>
+                }
+              </td>
+              <td>
+                @if (organisation.createdAt) {
+                  <time [attr.datetime]="organisation.createdAt.toISOString()">
+                    {{ organisation.createdAt | date: 'mediumDate' }}
+                  </time>
+                } @else {
+                  <span i18n="@@organisationList.valueMissing">Not provided</span>
+                }
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+  }
+</main>
