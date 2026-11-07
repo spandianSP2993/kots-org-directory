@@ -13,6 +13,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { debounceTime, Subject } from 'rxjs';
+import { TranslatePipe } from '../../../../core/i18n/translate.pipe';
 import { Organisation, OrganisationStatus } from '../../models/organisation.model';
 import { OrganisationService } from '../../services/organisation.service';
 
@@ -23,7 +24,7 @@ type CreatableOrganisationStatus = Exclude<OrganisationStatus, 'unknown'>;
 @Component({
   selector: 'app-organisation-list',
   standalone: true,
-  imports: [DatePipe, ReactiveFormsModule],
+  imports: [DatePipe, ReactiveFormsModule, TranslatePipe],
   templateUrl: './organisation-list.component.html',
   styleUrl: './organisation-list.component.scss'
 })

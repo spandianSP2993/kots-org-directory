@@ -1,0 +1,65 @@
+{
+  "organisationList": {
+    "title": "Organisation directory",
+    "controlsLabel": "Organisation list controls",
+    "searchLabel": "Search by organisation name",
+    "searchPlaceholder": "Search organisations",
+    "statusFilterLabel": "Filter by status",
+    "statusFilter": {
+      "all": "All statuses",
+      "active": "Active",
+      "suspended": "Suspended",
+      "inactive": "Inactive",
+      "unknown": "Unknown"
+    },
+    "sortLabel": "Sort organisations",
+    "sort": {
+      "nameAscending": "Name ascending",
+      "nameDescending": "Name descending",
+      "createdNewest": "Created date newest first",
+      "createdOldest": "Created date oldest first"
+    },
+    "loading": "Loading organisations…",
+    "errorTitle": "Organisations could not be loaded",
+    "errorMessage": "Please try again.",
+    "retry": "Try again",
+    "createTitle": "Create an organisation",
+    "createMemoryNotice": "This organisation is kept in memory only and is not saved to a backend.",
+    "create": {
+      "nameLabel": "Organisation name",
+      "nameRequired": "Enter an organisation name.",
+      "nameMinLength": "Name must be at least 3 characters.",
+      "nameMaxLength": "Name must be no more than 80 characters.",
+      "nameDuplicate": "An organisation with this name already exists.",
+      "statusLabel": "Status",
+      "statusRequired": "Select an organisation status.",
+      "emailLabel": "Owner email",
+      "emailRequired": "Enter an owner email address.",
+      "emailInvalid": "Enter a valid email address.",
+      "memberCountLabel": "Member count (optional)",
+      "memberCountInvalid": "Enter a non-negative whole number.",
+      "submit": "Create",
+      "cancel": "Cancel"
+    },
+    "createButton": "Create Organisation",
+    "empty": "No organisations are available.",
+    "noMatches": "No organisations match the selected search and filters.",
+    "tableRegionLabel": "Organisation records",
+    "tableCaption": "Organisation records",
+    "column": {
+      "name": "Organisation name",
+      "status": "Status",
+      "memberCount": "Member count",
+      "ownerEmail": "Owner email",
+      "createdAt": "Created date"
+    },
+    "status": {
+      "active": "Active",
+      "suspended": "Suspended",
+      "inactive": "Inactive",
+      "unknown": "Unknown"
+    },
+    "valueMissing": "Not provided",
+    "emailInvalid": "Invalid email address"
+  }
+}

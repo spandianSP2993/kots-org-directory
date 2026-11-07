@@ -1,92 +1,95 @@
 <main class="organisation-list" aria-labelledby="organisation-list-title">
-  <h1 id="organisation-list-title" i18n="@@organisationList.title">
-    Organisation directory
+  <h1 id="organisation-list-title">
+    {{ 'organisationList.title' | translate }}
   </h1>
 
-  <section class="directory-controls" aria-label="Organisation list controls" i18n-aria-label="@@organisationList.controlsLabel">
-    <div>
-      <label for="organisation-search" i18n="@@organisationList.searchLabel">
-        Search by organisation name
+  <section
+    class="directory-controls"
+    [attr.aria-label]="'organisationList.controlsLabel' | translate"
+  >
+    <div class="control-field">
+      <label for="organisation-search">
+        {{ 'organisationList.searchLabel' | translate }}
       </label>
       <input
         id="organisation-search"
         type="search"
         [value]="searchInput()"
         (input)="onSearchInput($event)"
-        i18n-placeholder="@@organisationList.searchPlaceholder"
-        placeholder="Search organisations"
+        [placeholder]="'organisationList.searchPlaceholder' | translate"
       >
     </div>
 
-    <div>
-      <label for="organisation-status-filter" i18n="@@organisationList.statusFilterLabel">
-        Filter by status
+    <div class="control-field">
+      <label for="organisation-status-filter">
+        {{ 'organisationList.statusFilterLabel' | translate }}
       </label>
       <select
         id="organisation-status-filter"
         [value]="statusFilter()"
         (change)="onStatusChange($event)"
       >
-        <option value="all" i18n="@@organisationList.statusFilter.all">All statuses</option>
-        <option value="active" i18n="@@organisationList.statusFilter.active">Active</option>
-        <option value="suspended" i18n="@@organisationList.statusFilter.suspended">Suspended</option>
-        <option value="inactive" i18n="@@organisationList.statusFilter.inactive">Inactive</option>
-        <option value="unknown" i18n="@@organisationList.statusFilter.unknown">Unknown</option>
+        <option value="all">{{ 'organisationList.statusFilter.all' | translate }}</option>
+        <option value="active">{{ 'organisationList.statusFilter.active' | translate }}</option>
+        <option value="suspended">{{ 'organisationList.statusFilter.suspended' | translate }}</option>
+        <option value="inactive">{{ 'organisationList.statusFilter.inactive' | translate }}</option>
+        <option value="unknown">{{ 'organisationList.statusFilter.unknown' | translate }}</option>
       </select>
     </div>
 
-    <div>
-      <label for="organisation-sort-order" i18n="@@organisationList.sortLabel">
-        Sort organisations
+    <div class="control-field">
+      <label for="organisation-sort-order">
+        {{ 'organisationList.sortLabel' | translate }}
       </label>
       <select
         id="organisation-sort-order"
         [value]="sortOrder()"
         (change)="onSortChange($event)"
       >
-        <option value="name-asc" i18n="@@organisationList.sort.nameAscending">Name ascending</option>
-        <option value="name-desc" i18n="@@organisationList.sort.nameDescending">Name descending</option>
-        <option value="created-newest" i18n="@@organisationList.sort.createdNewest">Created date newest first</option>
-        <option value="created-oldest" i18n="@@organisationList.sort.createdOldest">Created date oldest first</option>
+        <option value="name-asc">{{ 'organisationList.sort.nameAscending' | translate }}</option>
+        <option value="name-desc">{{ 'organisationList.sort.nameDescending' | translate }}</option>
+        <option value="created-newest">{{ 'organisationList.sort.createdNewest' | translate }}</option>
+        <option value="created-oldest">{{ 'organisationList.sort.createdOldest' | translate }}</option>
       </select>
     </div>
   </section>
 
   @if (isLoading()) {
-    <p role="status" aria-live="polite" i18n="@@organisationList.loading">
-      Loading organisations…
+    <p class="page-state loading-state" role="status" aria-live="polite">
+      {{ 'organisationList.loading' | translate }}
     </p>
   } @else if (hasError()) {
-    <section role="alert" aria-labelledby="organisation-list-error-title">
-      <h2 id="organisation-list-error-title" i18n="@@organisationList.errorTitle">
-        Organisations could not be loaded
+    <section class="page-state error-state" role="alert" aria-labelledby="organisation-list-error-title">
+      <h2 id="organisation-list-error-title">
+        {{ 'organisationList.errorTitle' | translate }}
       </h2>
-      <p i18n="@@organisationList.errorMessage">
-        Please try again.
+      <p>
+        {{ 'organisationList.errorMessage' | translate }}
       </p>
-      <button type="button" (click)="loadOrganisations()" i18n="@@organisationList.retry">
-        Try again
+      <button type="button" (click)="loadOrganisations()">
+        {{ 'organisationList.retry' | translate }}
       </button>
     </section>
   } @else {
     @if (isCreateFormVisible()) {
       <form
+        class="create-organisation-form"
         id="create-organisation-form"
         [formGroup]="organisationForm"
         (ngSubmit)="createOrganisation()"
         novalidate
         aria-labelledby="create-organisation-title"
       >
-        <h2 id="create-organisation-title" i18n="@@organisationList.createTitle">
-          Create an organisation
+        <h2 id="create-organisation-title">
+          {{ 'organisationList.createTitle' | translate }}
         </h2>
-        <p i18n="@@organisationList.createMemoryNotice">
-          This organisation is kept in memory only and is not saved to a backend.
+        <p>
+          {{ 'organisationList.createMemoryNotice' | translate }}
         </p>
 
-        <div>
-          <label for="create-organisation-name" i18n="@@organisationList.create.nameLabel">
-            Organisation name
+        <div class="form-field">
+          <label for="create-organisation-name">
+            {{ 'organisationList.create.nameLabel' | translate }}
           </label>
           <input
             id="create-organisation-name"
@@ -101,21 +104,21 @@
           @if (organisationForm.controls.name.touched) {
             <div id="create-organisation-name-errors">
               @if (organisationForm.controls.name.hasError('required')) {
-                <p i18n="@@organisationList.create.nameRequired">Enter an organisation name.</p>
+                <p>{{ 'organisationList.create.nameRequired' | translate }}</p>
               } @else if (organisationForm.controls.name.hasError('minlength')) {
-                <p i18n="@@organisationList.create.nameMinLength">Name must be at least 3 characters.</p>
+                <p>{{ 'organisationList.create.nameMinLength' | translate }}</p>
               } @else if (organisationForm.controls.name.hasError('maxlength')) {
-                <p i18n="@@organisationList.create.nameMaxLength">Name must be no more than 80 characters.</p>
+                <p>{{ 'organisationList.create.nameMaxLength' | translate }}</p>
               } @else if (organisationForm.controls.name.hasError('duplicateName')) {
-                <p i18n="@@organisationList.create.nameDuplicate">An organisation with this name already exists.</p>
+                <p>{{ 'organisationList.create.nameDuplicate' | translate }}</p>
               }
             </div>
           }
         </div>
 
-        <div>
-          <label for="create-organisation-status" i18n="@@organisationList.create.statusLabel">
-            Status
+        <div class="form-field">
+          <label for="create-organisation-status">
+            {{ 'organisationList.create.statusLabel' | translate }}
           </label>
           <select
             id="create-organisation-status"
@@ -124,20 +127,20 @@
             [attr.aria-invalid]="organisationForm.controls.status.invalid && organisationForm.controls.status.touched"
             aria-describedby="create-organisation-status-errors"
           >
-            <option value="active" i18n="@@organisationList.status.active">Active</option>
-            <option value="suspended" i18n="@@organisationList.status.suspended">Suspended</option>
-            <option value="inactive" i18n="@@organisationList.status.inactive">Inactive</option>
+            <option value="active">{{ 'organisationList.status.active' | translate }}</option>
+            <option value="suspended">{{ 'organisationList.status.suspended' | translate }}</option>
+            <option value="inactive">{{ 'organisationList.status.inactive' | translate }}</option>
           </select>
           @if (organisationForm.controls.status.touched && organisationForm.controls.status.hasError('required')) {
-            <p id="create-organisation-status-errors" i18n="@@organisationList.create.statusRequired">
-              Select an organisation status.
+            <p id="create-organisation-status-errors">
+              {{ 'organisationList.create.statusRequired' | translate }}
             </p>
           }
         </div>
 
-        <div>
-          <label for="create-organisation-email" i18n="@@organisationList.create.emailLabel">
-            Owner email
+        <div class="form-field">
+          <label for="create-organisation-email">
+            {{ 'organisationList.create.emailLabel' | translate }}
           </label>
           <input
             id="create-organisation-email"
@@ -150,17 +153,17 @@
           @if (organisationForm.controls.ownerEmail.touched) {
             <div id="create-organisation-email-errors">
               @if (organisationForm.controls.ownerEmail.hasError('required')) {
-                <p i18n="@@organisationList.create.emailRequired">Enter an owner email address.</p>
+                <p>{{ 'organisationList.create.emailRequired' | translate }}</p>
               } @else if (organisationForm.controls.ownerEmail.hasError('email')) {
-                <p i18n="@@organisationList.create.emailInvalid">Enter a valid email address.</p>
+                <p>{{ 'organisationList.create.emailInvalid' | translate }}</p>
               }
             </div>
           }
         </div>
 
-        <div>
-          <label for="create-organisation-member-count" i18n="@@organisationList.create.memberCountLabel">
-            Member count (optional)
+        <div class="form-field">
+          <label for="create-organisation-member-count">
+            {{ 'organisationList.create.memberCountLabel' | translate }}
           </label>
           <input
             id="create-organisation-member-count"
@@ -171,18 +174,20 @@
             aria-describedby="create-organisation-member-count-errors"
           >
           @if (organisationForm.controls.memberCount.touched && organisationForm.controls.memberCount.hasError('nonNegativeInteger')) {
-            <p id="create-organisation-member-count-errors" i18n="@@organisationList.create.memberCountInvalid">
-              Enter a non-negative whole number.
+            <p id="create-organisation-member-count-errors">
+              {{ 'organisationList.create.memberCountInvalid' | translate }}
             </p>
           }
         </div>
 
-        <button type="submit" i18n="@@organisationList.create.submit">
-          Create
-        </button>
-        <button type="button" (click)="closeCreateForm()" i18n="@@organisationList.create.cancel">
-          Cancel
-        </button>
+        <div class="form-actions">
+          <button type="submit">
+            {{ 'organisationList.create.submit' | translate }}
+          </button>
+          <button class="secondary-button" type="button" (click)="closeCreateForm()">
+            {{ 'organisationList.create.cancel' | translate }}
+          </button>
+        </div>
       </form>
     } @else {
       <button
@@ -190,100 +195,106 @@
         (click)="openCreateForm()"
         [attr.aria-expanded]="isCreateFormVisible()"
         aria-controls="create-organisation-form"
-        i18n="@@organisationList.createButton"
       >
-        Create Organisation
+        {{ 'organisationList.createButton' | translate }}
       </button>
     }
 
     @if (organisations().length === 0) {
-      <p role="status" i18n="@@organisationList.empty">
-        No organisations are available.
+      <p class="page-state empty-state" role="status">
+        {{ 'organisationList.empty' | translate }}
       </p>
     } @else if (displayedOrganisations().length === 0) {
-      <p role="status" i18n="@@organisationList.noMatches">
-        No organisations match the selected search and filters.
+      <p class="page-state empty-state" role="status">
+        {{ 'organisationList.noMatches' | translate }}
       </p>
     } @else {
-      <table class="organisation-table">
-        <caption i18n="@@organisationList.tableCaption">
-          Organisation records
-        </caption>
-        <colgroup>
-          <col class="organisation-name-column">
-          <col class="organisation-status-column">
-          <col class="organisation-members-column">
-          <col class="organisation-email-column">
-          <col class="organisation-date-column">
-        </colgroup>
-        <thead>
-          <tr>
-            <th scope="col" i18n="@@organisationList.column.name">Organisation name</th>
-            <th scope="col" i18n="@@organisationList.column.status">Status</th>
-            <th scope="col" i18n="@@organisationList.column.memberCount">Member count</th>
-            <th scope="col" i18n="@@organisationList.column.ownerEmail">Owner email</th>
-            <th scope="col" i18n="@@organisationList.column.createdAt">Created date</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (organisation of displayedOrganisations(); track organisation.id) {
+      <div
+        class="table-scroll"
+        role="region"
+        tabindex="0"
+        [attr.aria-label]="'organisationList.tableRegionLabel' | translate"
+      >
+        <table class="organisation-table">
+          <caption>
+            {{ 'organisationList.tableCaption' | translate }}
+          </caption>
+          <colgroup>
+            <col class="organisation-name-column">
+            <col class="organisation-status-column">
+            <col class="organisation-members-column">
+            <col class="organisation-email-column">
+            <col class="organisation-date-column">
+          </colgroup>
+          <thead>
             <tr>
-              <td>
-                @if (organisation.name) {
-                  <span class="organisation-name" [title]="organisation.name">
-                    {{ organisation.name }}
-                  </span>
-                } @else {
-                  <span i18n="@@organisationList.valueMissing">Not provided</span>
-                }
-              </td>
-              <td>
-                @switch (organisation.status) {
-                  @case ('active') {
-                    <span i18n="@@organisationList.status.active">Active</span>
-                  }
-                  @case ('suspended') {
-                    <span i18n="@@organisationList.status.suspended">Suspended</span>
-                  }
-                  @case ('inactive') {
-                    <span i18n="@@organisationList.status.inactive">Inactive</span>
-                  }
-                  @default {
-                    <span i18n="@@organisationList.status.unknown">Unknown</span>
-                  }
-                }
-              </td>
-              <td>
-                @if (organisation.memberCount !== null) {
-                  {{ organisation.memberCount }}
-                } @else {
-                  <span i18n="@@organisationList.valueMissing">Not provided</span>
-                }
-              </td>
-              <td>
-                @if (organisation.emailStatus === 'valid' && organisation.ownerEmail) {
-                  <a [href]="'mailto:' + organisation.ownerEmail">
-                    {{ organisation.ownerEmail }}
-                  </a>
-                } @else if (organisation.emailStatus === 'invalid') {
-                  <span i18n="@@organisationList.emailInvalid">Invalid email address</span>
-                } @else {
-                  <span i18n="@@organisationList.valueMissing">Not provided</span>
-                }
-              </td>
-              <td>
-                @if (organisation.createdAt) {
-                  <time [attr.datetime]="organisation.createdAt.toISOString()">
-                    {{ organisation.createdAt | date: 'mediumDate' }}
-                  </time>
-                } @else {
-                  <span i18n="@@organisationList.valueMissing">Not provided</span>
-                }
-              </td>
+              <th scope="col">{{ 'organisationList.column.name' | translate }}</th>
+              <th scope="col">{{ 'organisationList.column.status' | translate }}</th>
+              <th scope="col">{{ 'organisationList.column.memberCount' | translate }}</th>
+              <th scope="col">{{ 'organisationList.column.ownerEmail' | translate }}</th>
+              <th scope="col">{{ 'organisationList.column.createdAt' | translate }}</th>
             </tr>
-          }
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            @for (organisation of displayedOrganisations(); track organisation.id) {
+              <tr>
+                <td>
+                  @if (organisation.name) {
+                    <span class="organisation-name" [title]="organisation.name">
+                      {{ organisation.name }}
+                    </span>
+                  } @else {
+                    <span>{{ 'organisationList.valueMissing' | translate }}</span>
+                  }
+                </td>
+                <td>
+                  @switch (organisation.status) {
+                    @case ('active') {
+                      <span class="status-badge" data-status="active">{{ 'organisationList.status.active' | translate }}</span>
+                    }
+                    @case ('suspended') {
+                      <span class="status-badge" data-status="suspended">{{ 'organisationList.status.suspended' | translate }}</span>
+                    }
+                    @case ('inactive') {
+                      <span class="status-badge" data-status="inactive">{{ 'organisationList.status.inactive' | translate }}</span>
+                    }
+                    @default {
+                      <span class="status-badge" data-status="unknown">{{ 'organisationList.status.unknown' | translate }}</span>
+                    }
+                  }
+                </td>
+                <td>
+                  @if (organisation.memberCount !== null) {
+                    {{ organisation.memberCount }}
+                  } @else {
+                    <span>{{ 'organisationList.valueMissing' | translate }}</span>
+                  }
+                </td>
+                <td>
+                  @if (organisation.emailStatus === 'valid' && organisation.ownerEmail) {
+                    <a class="owner-email" [href]="'mailto:' + organisation.ownerEmail">
+                      {{ organisation.ownerEmail }}
+                    </a>
+                  } @else if (organisation.emailStatus === 'invalid') {
+                    <span>{{ 'organisationList.emailInvalid' | translate }}</span>
+                  } @else {
+                    <span>{{ 'organisationList.valueMissing' | translate }}</span>
+                  }
+                </td>
+                <td>
+                  @if (organisation.createdAt) {
+                    <time [attr.datetime]="organisation.createdAt.toISOString()">
+                      {{ organisation.createdAt | date: 'mediumDate' }}
+                    </time>
+                  } @else {
+                    <span>{{ 'organisationList.valueMissing' | translate }}</span>
+                  }
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
     }
   }
 </main>
