@@ -68,12 +68,139 @@
         Try again
       </button>
     </section>
-  } @else if (organisations().length === 0) {
-    <p role="status" i18n="@@organisationList.empty">
-      No organisations are available.
-    </p>
   } @else {
-    @if (displayedOrganisations().length === 0) {
+    @if (isCreateFormVisible()) {
+      <form
+        id="create-organisation-form"
+        [formGroup]="organisationForm"
+        (ngSubmit)="createOrganisation()"
+        novalidate
+        aria-labelledby="create-organisation-title"
+      >
+        <h2 id="create-organisation-title" i18n="@@organisationList.createTitle">
+          Create an organisation
+        </h2>
+        <p i18n="@@organisationList.createMemoryNotice">
+          This organisation is kept in memory only and is not saved to a backend.
+        </p>
+
+        <div>
+          <label for="create-organisation-name" i18n="@@organisationList.create.nameLabel">
+            Organisation name
+          </label>
+          <input
+            id="create-organisation-name"
+            type="text"
+            formControlName="name"
+            required
+            minlength="3"
+            maxlength="80"
+            [attr.aria-invalid]="organisationForm.controls.name.invalid && organisationForm.controls.name.touched"
+            aria-describedby="create-organisation-name-errors"
+          >
+          @if (organisationForm.controls.name.touched) {
+            <div id="create-organisation-name-errors">
+              @if (organisationForm.controls.name.hasError('required')) {
+                <p i18n="@@organisationList.create.nameRequired">Enter an organisation name.</p>
+              } @else if (organisationForm.controls.name.hasError('minlength')) {
+                <p i18n="@@organisationList.create.nameMinLength">Name must be at least 3 characters.</p>
+              } @else if (organisationForm.controls.name.hasError('maxlength')) {
+                <p i18n="@@organisationList.create.nameMaxLength">Name must be no more than 80 characters.</p>
+              } @else if (organisationForm.controls.name.hasError('duplicateName')) {
+                <p i18n="@@organisationList.create.nameDuplicate">An organisation with this name already exists.</p>
+              }
+            </div>
+          }
+        </div>
+
+        <div>
+          <label for="create-organisation-status" i18n="@@organisationList.create.statusLabel">
+            Status
+          </label>
+          <select
+            id="create-organisation-status"
+            formControlName="status"
+            required
+            [attr.aria-invalid]="organisationForm.controls.status.invalid && organisationForm.controls.status.touched"
+            aria-describedby="create-organisation-status-errors"
+          >
+            <option value="active" i18n="@@organisationList.status.active">Active</option>
+            <option value="suspended" i18n="@@organisationList.status.suspended">Suspended</option>
+            <option value="inactive" i18n="@@organisationList.status.inactive">Inactive</option>
+          </select>
+          @if (organisationForm.controls.status.touched && organisationForm.controls.status.hasError('required')) {
+            <p id="create-organisation-status-errors" i18n="@@organisationList.create.statusRequired">
+              Select an organisation status.
+            </p>
+          }
+        </div>
+
+        <div>
+          <label for="create-organisation-email" i18n="@@organisationList.create.emailLabel">
+            Owner email
+          </label>
+          <input
+            id="create-organisation-email"
+            type="email"
+            formControlName="ownerEmail"
+            required
+            [attr.aria-invalid]="organisationForm.controls.ownerEmail.invalid && organisationForm.controls.ownerEmail.touched"
+            aria-describedby="create-organisation-email-errors"
+          >
+          @if (organisationForm.controls.ownerEmail.touched) {
+            <div id="create-organisation-email-errors">
+              @if (organisationForm.controls.ownerEmail.hasError('required')) {
+                <p i18n="@@organisationList.create.emailRequired">Enter an owner email address.</p>
+              } @else if (organisationForm.controls.ownerEmail.hasError('email')) {
+                <p i18n="@@organisationList.create.emailInvalid">Enter a valid email address.</p>
+              }
+            </div>
+          }
+        </div>
+
+        <div>
+          <label for="create-organisation-member-count" i18n="@@organisationList.create.memberCountLabel">
+            Member count (optional)
+          </label>
+          <input
+            id="create-organisation-member-count"
+            type="text"
+            inputmode="numeric"
+            formControlName="memberCount"
+            [attr.aria-invalid]="organisationForm.controls.memberCount.invalid && organisationForm.controls.memberCount.touched"
+            aria-describedby="create-organisation-member-count-errors"
+          >
+          @if (organisationForm.controls.memberCount.touched && organisationForm.controls.memberCount.hasError('nonNegativeInteger')) {
+            <p id="create-organisation-member-count-errors" i18n="@@organisationList.create.memberCountInvalid">
+              Enter a non-negative whole number.
+            </p>
+          }
+        </div>
+
+        <button type="submit" i18n="@@organisationList.create.submit">
+          Create
+        </button>
+        <button type="button" (click)="closeCreateForm()" i18n="@@organisationList.create.cancel">
+          Cancel
+        </button>
+      </form>
+    } @else {
+      <button
+        type="button"
+        (click)="openCreateForm()"
+        [attr.aria-expanded]="isCreateFormVisible()"
+        aria-controls="create-organisation-form"
+        i18n="@@organisationList.createButton"
+      >
+        Create Organisation
+      </button>
+    }
+
+    @if (organisations().length === 0) {
+      <p role="status" i18n="@@organisationList.empty">
+        No organisations are available.
+      </p>
+    } @else if (displayedOrganisations().length === 0) {
       <p role="status" i18n="@@organisationList.noMatches">
         No organisations match the selected search and filters.
       </p>

@@ -1,6 +1,16 @@
 import { DatePipe } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Component, computed, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  ValidationErrors,
+  ValidatorFn,
+  Validators
+} from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { debounceTime, Subject } from 'rxjs';
 import { Organisation, OrganisationStatus } from '../../models/organisation.model';
@@ -8,15 +18,17 @@ import { OrganisationService } from '../../services/organisation.service';
 
 type StatusFilter = OrganisationStatus | 'all';
 type OrganisationSort = 'name-asc' | 'name-desc' | 'created-newest' | 'created-oldest';
+type CreatableOrganisationStatus = Exclude<OrganisationStatus, 'unknown'>;
 
 @Component({
   selector: 'app-organisation-list',
   standalone: true,
-  imports: [DatePipe],
+  imports: [DatePipe, ReactiveFormsModule],
   templateUrl: './organisation-list.component.html',
   styleUrl: './organisation-list.component.scss'
 })
 export class OrganisationListComponent implements OnInit {
+  private readonly formBuilder = inject(FormBuilder);
   private readonly organisationService = inject(OrganisationService);
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
@@ -26,10 +38,70 @@ export class OrganisationListComponent implements OnInit {
   readonly organisations = signal<Organisation[]>([]);
   readonly isLoading = signal(true);
   readonly hasError = signal(false);
+  readonly isCreateFormVisible = signal(false);
   readonly searchInput = signal('');
   readonly searchTerm = signal('');
   readonly statusFilter = signal<StatusFilter>('all');
   readonly sortOrder = signal<OrganisationSort>('name-asc');
+  private readonly uniqueNameValidator: ValidatorFn = (
+    control: AbstractControl
+  ): ValidationErrors | null => {
+    const name = typeof control.value === 'string'
+      ? control.value.trim().toLocaleLowerCase()
+      : '';
+    if (!name) {
+      return null;
+    }
+
+    const isDuplicate = this.organisations().some(
+      (organisation) =>
+        organisation.name?.trim().toLocaleLowerCase() === name
+    );
+    return isDuplicate ? { duplicateName: true } : null;
+  };
+  private readonly nonNegativeIntegerValidator: ValidatorFn = (
+    control: AbstractControl
+  ): ValidationErrors | null => {
+    const value = typeof control.value === 'string'
+      ? control.value.trim()
+      : '';
+    if (!value) {
+      return null;
+    }
+
+    if (!/^\d+$/.test(value)) {
+      return { nonNegativeInteger: true };
+    }
+
+    const memberCount = Number(value);
+    return Number.isSafeInteger(memberCount)
+      ? null
+      : { nonNegativeInteger: true };
+  };
+  readonly organisationForm: FormGroup<{
+    name: FormControl<string>;
+    status: FormControl<CreatableOrganisationStatus>;
+    ownerEmail: FormControl<string>;
+    memberCount: FormControl<string>;
+  }> = this.formBuilder.nonNullable.group({
+    name: this.formBuilder.nonNullable.control('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(80),
+      this.uniqueNameValidator
+    ]),
+    status: this.formBuilder.nonNullable.control<CreatableOrganisationStatus>(
+      'active',
+      Validators.required
+    ),
+    ownerEmail: this.formBuilder.nonNullable.control('', [
+      Validators.required,
+      Validators.email
+    ]),
+    memberCount: this.formBuilder.nonNullable.control('', [
+      this.nonNegativeIntegerValidator
+    ])
+  });
   readonly displayedOrganisations = computed(() => {
     const searchTerm = this.searchTerm().trim().toLocaleLowerCase();
     const statusFilter = this.statusFilter();
@@ -114,6 +186,47 @@ export class OrganisationListComponent implements OnInit {
     this.updateQueryParams();
   }
 
+  openCreateForm(): void {
+    this.organisationForm.reset();
+    this.isCreateFormVisible.set(true);
+  }
+
+  closeCreateForm(): void {
+    this.organisationForm.reset();
+    this.isCreateFormVisible.set(false);
+  }
+
+  createOrganisation(): void {
+    if (this.organisationForm.invalid) {
+      this.organisationForm.markAllAsTouched();
+      return;
+    }
+
+    const formValue = this.organisationForm.getRawValue();
+    const name = formValue.name.trim();
+    if (!name) {
+      this.organisationForm.controls.name.markAsTouched();
+      return;
+    }
+
+    const existingOrganisations = this.organisations();
+    const id = this.nextOrganisationId(existingOrganisations);
+    const memberCount = formValue.memberCount.trim();
+    const organisation: Organisation = {
+      id,
+      name,
+      status: formValue.status,
+      memberCount: memberCount ? Number(memberCount) : null,
+      ownerEmail: formValue.ownerEmail.trim(),
+      emailStatus: 'valid',
+      createdAt: new Date()
+    };
+
+    this.organisations.set([...existingOrganisations, organisation]);
+    this.organisationForm.reset();
+    this.isCreateFormVisible.set(false);
+  }
+
   loadOrganisations(): void {
     this.isLoading.set(true);
     this.hasError.set(false);
@@ -177,5 +290,19 @@ export class OrganisationListComponent implements OnInit {
       value === 'name-desc' ||
       value === 'created-newest' ||
       value === 'created-oldest';
+  }
+
+  private nextOrganisationId(organisations: Organisation[]): number {
+    let id = organisations.reduce(
+      (highestId, organisation) => Math.max(highestId, organisation.id),
+      0
+    ) + 1;
+    const existingIds = new Set(organisations.map((organisation) => organisation.id));
+
+    while (existingIds.has(id)) {
+      id += 1;
+    }
+
+    return id;
   }
 }
