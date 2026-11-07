@@ -1,0 +1,1399 @@
+[
+  {
+    "id": 1,
+    "name": "Northwind Traders",
+    "status": "active",
+    "memberCount": 42,
+    "owner": {
+      "email": "ops@northwind.example"
+    },
+    "createdAt": "2024-03-11T09:12:00Z"
+  },
+  {
+    "id": 2,
+    "name": "",
+    "status": "ACTIVE",
+    "memberCount": "12",
+    "owner": {
+      "email": "a@b.example"
+    },
+    "createdAt": 1710150720000
+  },
+  {
+    "id": 3,
+    "name": null,
+    "status": "Active",
+    "memberCount": -1,
+    "createdAt": "2024-01-02T00:00:00Z"
+  },
+  {
+    "id": 42,
+    "name": "Globex Corporation",
+    "status": "suspended",
+    "memberCount": 7,
+    "owner": {
+      "email": "hq@globex.example"
+    },
+    "createdAt": "2023-11-30T14:45:10Z"
+  },
+  {
+    "id": 42,
+    "name": "Globex Corporation Ltd",
+    "status": "actve",
+    "memberCount": 7,
+    "owner": {
+      "email": "hq@globex.example"
+    },
+    "createdAt": "2023-11-30T14:45:10Z"
+  },
+  {
+    "id": 6,
+    "name": "شركة الأمل 🚀",
+    "status": "active",
+    "memberCount": 3,
+    "owner": {
+      "email": "info@amal.example"
+    },
+    "createdAt": "2025-06-01T08:00:00Z"
+  },
+  {
+    "id": 7,
+    "name": "The Very Long Organisation Name That Somebody Actually Typed Into The Field Because Nobody Validated It And It Keeps Going Well Past Any Reasonable Column Width And Still Has Not Stopped",
+    "status": "inactive",
+    "memberCount": 0,
+    "owner": {
+      "email": "long@example.com"
+    },
+    "createdAt": "2024-07-19T16:20:00Z"
+  },
+  {
+    "id": 8,
+    "name": "Initech",
+    "status": null,
+    "memberCount": null,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1000,
+    "name": "Organisation 1000",
+    "status": "active",
+    "memberCount": 0,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 1001,
+    "name": "Organisation 1001",
+    "status": "ACTIVE",
+    "memberCount": 12,
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1738368000000
+  },
+  {
+    "id": 1002,
+    "name": "Organisation 1002",
+    "status": "Active",
+    "memberCount": 25,
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1003,
+    "name": "Organisation 1003",
+    "status": "inactive",
+    "memberCount": 42,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-04-01T00:00:00.000Z"
+  },
+  {
+    "id": 1004,
+    "name": "Organisation 1004",
+    "status": "suspended",
+    "memberCount": "18",
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1746057600000
+  },
+  {
+    "id": 1005,
+    "name": "Organisation 1005",
+    "status": "actve",
+    "memberCount": "100",
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1006,
+    "name": "Organisation 1006",
+    "status": null,
+    "memberCount": -1,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-07-01T00:00:00.000Z"
+  },
+  {
+    "id": 1007,
+    "name": "Organisation 1007",
+    "status": "active",
+    "memberCount": null,
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1754006400000
+  },
+  {
+    "id": 1008,
+    "name": "Organisation 1008",
+    "status": "ACTIVE",
+    "memberCount": "invalid",
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1009,
+    "name": "Organisation 1009",
+    "status": "Active",
+    "memberCount": 0,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-10-01T00:00:00.000Z"
+  },
+  {
+    "id": 1010,
+    "name": "Organisation 1010",
+    "status": "inactive",
+    "memberCount": 12,
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1761955200000
+  },
+  {
+    "id": 1011,
+    "name": "Organisation 1011",
+    "status": "suspended",
+    "memberCount": 25,
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1012,
+    "name": "Organisation 1012",
+    "status": "actve",
+    "memberCount": 42,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 1013,
+    "name": "Organisation 1013",
+    "status": null,
+    "memberCount": "18",
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1738368000000
+  },
+  {
+    "id": 1014,
+    "name": "Organisation 1014",
+    "status": "active",
+    "memberCount": "100",
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1015,
+    "name": "Organisation 1015",
+    "status": "ACTIVE",
+    "memberCount": -1,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-04-01T00:00:00.000Z"
+  },
+  {
+    "id": 1016,
+    "name": "Organisation 1016",
+    "status": "Active",
+    "memberCount": null,
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1746057600000
+  },
+  {
+    "id": 1017,
+    "name": "Organisation 1017",
+    "status": "inactive",
+    "memberCount": "invalid",
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1018,
+    "name": "Organisation 1018",
+    "status": "suspended",
+    "memberCount": 0,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-07-01T00:00:00.000Z"
+  },
+  {
+    "id": 1019,
+    "name": "Organisation 1019",
+    "status": "actve",
+    "memberCount": 12,
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1754006400000
+  },
+  {
+    "id": 1020,
+    "name": "Organisation 1020",
+    "status": null,
+    "memberCount": 25,
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1021,
+    "name": "Organisation 1021",
+    "status": "active",
+    "memberCount": 42,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-10-01T00:00:00.000Z"
+  },
+  {
+    "id": 1022,
+    "name": "Organisation 1022",
+    "status": "ACTIVE",
+    "memberCount": "18",
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1761955200000
+  },
+  {
+    "id": 1023,
+    "name": "Organisation 1023",
+    "status": "Active",
+    "memberCount": "100",
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1024,
+    "name": "Organisation 1024",
+    "status": "inactive",
+    "memberCount": -1,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 1025,
+    "name": "Organisation 1025",
+    "status": "suspended",
+    "memberCount": null,
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1738368000000
+  },
+  {
+    "id": 1026,
+    "name": "Organisation 1026",
+    "status": "actve",
+    "memberCount": "invalid",
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1027,
+    "name": "Organisation 1027",
+    "status": null,
+    "memberCount": 0,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-04-01T00:00:00.000Z"
+  },
+  {
+    "id": 1028,
+    "name": "Organisation 1028",
+    "status": "active",
+    "memberCount": 12,
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1746057600000
+  },
+  {
+    "id": 1029,
+    "name": "Organisation 1029",
+    "status": "ACTIVE",
+    "memberCount": 25,
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1030,
+    "name": "Organisation 1030",
+    "status": "Active",
+    "memberCount": 42,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-07-01T00:00:00.000Z"
+  },
+  {
+    "id": 1031,
+    "name": "Organisation 1031",
+    "status": "inactive",
+    "memberCount": "18",
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1754006400000
+  },
+  {
+    "id": 1032,
+    "name": "Organisation 1032",
+    "status": "suspended",
+    "memberCount": "100",
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1033,
+    "name": "Organisation 1033",
+    "status": "actve",
+    "memberCount": -1,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-10-01T00:00:00.000Z"
+  },
+  {
+    "id": 1034,
+    "name": "Organisation 1034",
+    "status": null,
+    "memberCount": null,
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1761955200000
+  },
+  {
+    "id": 1035,
+    "name": "Organisation 1035",
+    "status": "active",
+    "memberCount": "invalid",
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1036,
+    "name": "Organisation 1036",
+    "status": "ACTIVE",
+    "memberCount": 0,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 1037,
+    "name": "Organisation 1037",
+    "status": "Active",
+    "memberCount": 12,
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1738368000000
+  },
+  {
+    "id": 1038,
+    "name": "Organisation 1038",
+    "status": "inactive",
+    "memberCount": 25,
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1039,
+    "name": "Organisation 1039",
+    "status": "suspended",
+    "memberCount": 42,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-04-01T00:00:00.000Z"
+  },
+  {
+    "id": 1040,
+    "name": "Organisation 1040",
+    "status": "actve",
+    "memberCount": "18",
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1746057600000
+  },
+  {
+    "id": 1041,
+    "name": "Organisation 1041",
+    "status": null,
+    "memberCount": "100",
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1042,
+    "name": "Organisation 1042",
+    "status": "active",
+    "memberCount": -1,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-07-01T00:00:00.000Z"
+  },
+  {
+    "id": 1043,
+    "name": "Organisation 1043",
+    "status": "ACTIVE",
+    "memberCount": null,
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1754006400000
+  },
+  {
+    "id": 1044,
+    "name": "Organisation 1044",
+    "status": "Active",
+    "memberCount": "invalid",
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1045,
+    "name": "Organisation 1045",
+    "status": "inactive",
+    "memberCount": 0,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-10-01T00:00:00.000Z"
+  },
+  {
+    "id": 1046,
+    "name": "Organisation 1046",
+    "status": "suspended",
+    "memberCount": 12,
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1761955200000
+  },
+  {
+    "id": 1047,
+    "name": "Organisation 1047",
+    "status": "actve",
+    "memberCount": 25,
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1048,
+    "name": "Organisation 1048",
+    "status": null,
+    "memberCount": 42,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 1049,
+    "name": "Organisation 1049",
+    "status": "active",
+    "memberCount": "18",
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1738368000000
+  },
+  {
+    "id": 1050,
+    "name": "Organisation 1050",
+    "status": "ACTIVE",
+    "memberCount": "100",
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1051,
+    "name": "Organisation 1051",
+    "status": "Active",
+    "memberCount": -1,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-04-01T00:00:00.000Z"
+  },
+  {
+    "id": 1052,
+    "name": "Organisation 1052",
+    "status": "inactive",
+    "memberCount": null,
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1746057600000
+  },
+  {
+    "id": 1053,
+    "name": "Organisation 1053",
+    "status": "suspended",
+    "memberCount": "invalid",
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1054,
+    "name": "Organisation 1054",
+    "status": "actve",
+    "memberCount": 0,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-07-01T00:00:00.000Z"
+  },
+  {
+    "id": 1055,
+    "name": "Organisation 1055",
+    "status": null,
+    "memberCount": 12,
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1754006400000
+  },
+  {
+    "id": 1056,
+    "name": "Organisation 1056",
+    "status": "active",
+    "memberCount": 25,
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1057,
+    "name": "Organisation 1057",
+    "status": "ACTIVE",
+    "memberCount": 42,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-10-01T00:00:00.000Z"
+  },
+  {
+    "id": 1058,
+    "name": "Organisation 1058",
+    "status": "Active",
+    "memberCount": "18",
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1761955200000
+  },
+  {
+    "id": 1059,
+    "name": "Organisation 1059",
+    "status": "inactive",
+    "memberCount": "100",
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1060,
+    "name": "Organisation 1060",
+    "status": "suspended",
+    "memberCount": -1,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 1061,
+    "name": "Organisation 1061",
+    "status": "actve",
+    "memberCount": null,
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1738368000000
+  },
+  {
+    "id": 1062,
+    "name": "Organisation 1062",
+    "status": null,
+    "memberCount": "invalid",
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1063,
+    "name": "Organisation 1063",
+    "status": "active",
+    "memberCount": 0,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-04-01T00:00:00.000Z"
+  },
+  {
+    "id": 1064,
+    "name": "Organisation 1064",
+    "status": "ACTIVE",
+    "memberCount": 12,
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1746057600000
+  },
+  {
+    "id": 1065,
+    "name": "Organisation 1065",
+    "status": "Active",
+    "memberCount": 25,
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1066,
+    "name": "Organisation 1066",
+    "status": "inactive",
+    "memberCount": 42,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-07-01T00:00:00.000Z"
+  },
+  {
+    "id": 1067,
+    "name": "Organisation 1067",
+    "status": "suspended",
+    "memberCount": "18",
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1754006400000
+  },
+  {
+    "id": 1068,
+    "name": "Organisation 1068",
+    "status": "actve",
+    "memberCount": "100",
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1069,
+    "name": "Organisation 1069",
+    "status": null,
+    "memberCount": -1,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-10-01T00:00:00.000Z"
+  },
+  {
+    "id": 1070,
+    "name": "Organisation 1070",
+    "status": "active",
+    "memberCount": null,
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1761955200000
+  },
+  {
+    "id": 1071,
+    "name": "Organisation 1071",
+    "status": "ACTIVE",
+    "memberCount": "invalid",
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1072,
+    "name": "Organisation 1072",
+    "status": "Active",
+    "memberCount": 0,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 1073,
+    "name": "Organisation 1073",
+    "status": "inactive",
+    "memberCount": 12,
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1738368000000
+  },
+  {
+    "id": 1074,
+    "name": "Organisation 1074",
+    "status": "suspended",
+    "memberCount": 25,
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1075,
+    "name": "Organisation 1075",
+    "status": "actve",
+    "memberCount": 42,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-04-01T00:00:00.000Z"
+  },
+  {
+    "id": 1076,
+    "name": "Organisation 1076",
+    "status": null,
+    "memberCount": "18",
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1746057600000
+  },
+  {
+    "id": 1077,
+    "name": "Organisation 1077",
+    "status": "active",
+    "memberCount": "100",
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1078,
+    "name": "Organisation 1078",
+    "status": "ACTIVE",
+    "memberCount": -1,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-07-01T00:00:00.000Z"
+  },
+  {
+    "id": 1079,
+    "name": "Organisation 1079",
+    "status": "Active",
+    "memberCount": null,
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1754006400000
+  },
+  {
+    "id": 1080,
+    "name": "Organisation 1080",
+    "status": "inactive",
+    "memberCount": "invalid",
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1081,
+    "name": "Organisation 1081",
+    "status": "suspended",
+    "memberCount": 0,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-10-01T00:00:00.000Z"
+  },
+  {
+    "id": 1082,
+    "name": "Organisation 1082",
+    "status": "actve",
+    "memberCount": 12,
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1761955200000
+  },
+  {
+    "id": 1083,
+    "name": "Organisation 1083",
+    "status": null,
+    "memberCount": 25,
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1084,
+    "name": "Organisation 1084",
+    "status": "active",
+    "memberCount": 42,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 1085,
+    "name": "Organisation 1085",
+    "status": "ACTIVE",
+    "memberCount": "18",
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1738368000000
+  },
+  {
+    "id": 1086,
+    "name": "Organisation 1086",
+    "status": "Active",
+    "memberCount": "100",
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1087,
+    "name": "Organisation 1087",
+    "status": "inactive",
+    "memberCount": -1,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-04-01T00:00:00.000Z"
+  },
+  {
+    "id": 1088,
+    "name": "Organisation 1088",
+    "status": "suspended",
+    "memberCount": null,
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1746057600000
+  },
+  {
+    "id": 1089,
+    "name": "Organisation 1089",
+    "status": "actve",
+    "memberCount": "invalid",
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1090,
+    "name": "Organisation 1090",
+    "status": null,
+    "memberCount": 0,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-07-01T00:00:00.000Z"
+  },
+  {
+    "id": 1091,
+    "name": "Organisation 1091",
+    "status": "active",
+    "memberCount": 12,
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1754006400000
+  },
+  {
+    "id": 1092,
+    "name": "Organisation 1092",
+    "status": "ACTIVE",
+    "memberCount": 25,
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1093,
+    "name": "Organisation 1093",
+    "status": "Active",
+    "memberCount": 42,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-10-01T00:00:00.000Z"
+  },
+  {
+    "id": 1094,
+    "name": "Organisation 1094",
+    "status": "inactive",
+    "memberCount": "18",
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1761955200000
+  },
+  {
+    "id": 1095,
+    "name": "Organisation 1095",
+    "status": "suspended",
+    "memberCount": "100",
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1096,
+    "name": "Organisation 1096",
+    "status": "actve",
+    "memberCount": -1,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 1097,
+    "name": "Organisation 1097",
+    "status": null,
+    "memberCount": null,
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1738368000000
+  },
+  {
+    "id": 1098,
+    "name": "Organisation 1098",
+    "status": "active",
+    "memberCount": "invalid",
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1099,
+    "name": "Organisation 1099",
+    "status": "ACTIVE",
+    "memberCount": 0,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-04-01T00:00:00.000Z"
+  },
+  {
+    "id": 1100,
+    "name": "Organisation 1100",
+    "status": "Active",
+    "memberCount": 12,
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1746057600000
+  },
+  {
+    "id": 1101,
+    "name": "Organisation 1101",
+    "status": "inactive",
+    "memberCount": 25,
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1102,
+    "name": "Organisation 1102",
+    "status": "suspended",
+    "memberCount": 42,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-07-01T00:00:00.000Z"
+  },
+  {
+    "id": 1103,
+    "name": "Organisation 1103",
+    "status": "actve",
+    "memberCount": "18",
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1754006400000
+  },
+  {
+    "id": 1104,
+    "name": "Organisation 1104",
+    "status": null,
+    "memberCount": "100",
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1105,
+    "name": "Organisation 1105",
+    "status": "active",
+    "memberCount": -1,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-10-01T00:00:00.000Z"
+  },
+  {
+    "id": 1106,
+    "name": "Organisation 1106",
+    "status": "ACTIVE",
+    "memberCount": null,
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1761955200000
+  },
+  {
+    "id": 1107,
+    "name": "Organisation 1107",
+    "status": "Active",
+    "memberCount": "invalid",
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1108,
+    "name": "Organisation 1108",
+    "status": "inactive",
+    "memberCount": 0,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 1109,
+    "name": "Organisation 1109",
+    "status": "suspended",
+    "memberCount": 12,
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1738368000000
+  },
+  {
+    "id": 1110,
+    "name": "Organisation 1110",
+    "status": "actve",
+    "memberCount": 25,
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1111,
+    "name": "Organisation 1111",
+    "status": null,
+    "memberCount": 42,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-04-01T00:00:00.000Z"
+  },
+  {
+    "id": 1112,
+    "name": "Organisation 1112",
+    "status": "active",
+    "memberCount": "18",
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1746057600000
+  },
+  {
+    "id": 1113,
+    "name": "Organisation 1113",
+    "status": "ACTIVE",
+    "memberCount": "100",
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1114,
+    "name": "Organisation 1114",
+    "status": "Active",
+    "memberCount": -1,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-07-01T00:00:00.000Z"
+  },
+  {
+    "id": 1115,
+    "name": "Organisation 1115",
+    "status": "inactive",
+    "memberCount": null,
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1754006400000
+  },
+  {
+    "id": 1116,
+    "name": "Organisation 1116",
+    "status": "suspended",
+    "memberCount": "invalid",
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1117,
+    "name": "Organisation 1117",
+    "status": "actve",
+    "memberCount": 0,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-10-01T00:00:00.000Z"
+  },
+  {
+    "id": 1118,
+    "name": "Organisation 1118",
+    "status": null,
+    "memberCount": 12,
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1761955200000
+  },
+  {
+    "id": 1119,
+    "name": "Organisation 1119",
+    "status": "active",
+    "memberCount": 25,
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1120,
+    "name": "Organisation 1120",
+    "status": "ACTIVE",
+    "memberCount": 42,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 1121,
+    "name": "Organisation 1121",
+    "status": "Active",
+    "memberCount": "18",
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1738368000000
+  },
+  {
+    "id": 1122,
+    "name": "Organisation 1122",
+    "status": "inactive",
+    "memberCount": "100",
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1123,
+    "name": "Organisation 1123",
+    "status": "suspended",
+    "memberCount": -1,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-04-01T00:00:00.000Z"
+  },
+  {
+    "id": 1124,
+    "name": "Organisation 1124",
+    "status": "actve",
+    "memberCount": null,
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1746057600000
+  },
+  {
+    "id": 1125,
+    "name": "Organisation 1125",
+    "status": null,
+    "memberCount": "invalid",
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1126,
+    "name": "Organisation 1126",
+    "status": "active",
+    "memberCount": 0,
+    "owner": {
+      "email": "admin@example.com"
+    },
+    "createdAt": "2024-07-01T00:00:00.000Z"
+  },
+  {
+    "id": 1127,
+    "name": "Organisation 1127",
+    "status": "ACTIVE",
+    "memberCount": 12,
+    "owner": {
+      "email": "owner@company.example"
+    },
+    "createdAt": 1754006400000
+  },
+  {
+    "id": 1128,
+    "name": "Organisation 1128",
+    "status": "Active",
+    "memberCount": 25,
+    "owner": {
+      "email": "contact@organisation.example"
+    },
+    "createdAt": "not a date"
+  },
+  {
+    "id": 1129,
+    "name": "Organisation 1129",
+    "status": "inactive",
+    "memberCount": 42,
+    "owner": {
+      "email": "not-an-email"
+    },
+    "createdAt": "2024-10-01T00:00:00.000Z"
+  },
+  {
+    "id": 1130,
+    "name": "Organisation 1130",
+    "status": "suspended",
+    "memberCount": "18",
+    "owner": {
+      "email": null
+    },
+    "createdAt": 1761955200000
+  },
+  {
+    "id": 1131,
+    "name": "Organisation 1131",
+    "status": "actve",
+    "memberCount": "100",
+    "owner": {
+      "email": ""
+    },
+    "createdAt": "not a date"
+  }
+]
